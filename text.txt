@@ -1,0 +1,6 @@
+[1] Hello!
+[2] A beautiful day...
+[3] Day one.
+[4] Day two.
+[5] Day three.
+[6] Day four. I appended some texts.
