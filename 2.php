@@ -15,7 +15,7 @@
           <p class="card-text">
 
             <?php
-              function appendLine($filename){
+              function appendLine($filename, $fileText, $lineNumber){
 
                 if (file_exists($filename)){
                   echo "<h3>File Opened!</h3><br>";
@@ -23,12 +23,14 @@
                   echo "<i style='font-family: fantasy;'>'I appended some texts.' </i>";
 
                   $file = fopen($filename, "a");
-                  fwrite($file, " I appended some texts.");
+                  $fileLine = file ($filename, FILE_IGNORE_NEW_LINES);
+                  array_splice($fileLine, $lineNumber-1, 0, $fileText);
+                  file_put_contents($filename, join("\n", ($fileLine)));
                   fclose($file);
                 }
               }
 
-              appendLine("text.txt")
+               appendLine("text.txt", "I appended some text.", 4);
             ?>
 
           </p>
