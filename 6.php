@@ -14,34 +14,24 @@
       <div class="card-header bg-dark"><h1 class="card-title">6. CHECK PRIME NUMBER</h1></div>
         <div class="card-body text-dark">
           <h3 class="card-text text-center">
-            <form method="POST">
-              <label><b style="font-size: 18px">Enter a number: </b></label>
-                <input type="text" name="number" value ="<?php ?>"><br>
-                <input type="submit" name="submit" value="Submit" class="btn btn-primary" style="font-size: 18px"><br><hr>
                   
                   <?php  
-                    if(isset($_POST['submit'])){
-                      $num = $_POST['number'];
-                      $primeNum = 0;
-                     
-                      for($number = 2; $number < $num; $number++){
-                        $primeNum = 0;
-
-			                  if(($num % $number)==0){
-			                    break;	
+                    function checkPrime($num){
+                      for($x = 2; $x < $num; $x++){
+                        if($num % $x ==0){
+                          return 0;
                         }
-                        
-                        $primeNum = 1;
-                      }	
-
-                      if($primeNum == 1){
-			                  echo "$num is a Prime Number";
-                      }else{
-			                  echo "$num is not a Prime number";	
                       }
+                      return $num;
                     }
+                    
+                    $n = checkPrime(31);
+                    if ($n == 0)   
+                    echo  "$n is not a Prime Number.\n";
+                    else
+                    echo  "$n is a Prime Number.\n";
                   ?> 
-
+		  
           </h3>
         </div>
       
